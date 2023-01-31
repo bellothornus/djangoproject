@@ -1,0 +1,48 @@
+#instalar los entornos virtuales
+pip install virtualenv
+
+#crear un entorno virtual
+virtualenv venv
+
+#crear proyecto nuevo en el mismo directorio
+django-admin startproject {nombre del proyecto} ./
+
+#crear proyecto nuevo en subdirectorio
+django-admin startproject {nombre del proyecto}
+
+#iniciar el servidor
+sudo python3 manage.py runserver
+
+#iniciar el servidor en un puerto en concreto
+sudo python3 manage.py runserver 3000
+
+#ver la ayuda de manage.py
+sudo python3 manage.py --version
+
+#para crear aplicaciones dentro del proyecto
+sudo python3 manage.py startapp {nombre de la app}
+
+#para cmabiar el propietario de los archivos
+sudo chown -R divanov store
+
+#para hacer las migraciones despues de haber actualizado el archivo models.py
+python3 manage.py makemigrations {nombre de la app} //sin nada busca todo
+
+#para aplicar las migraciones despues de crear los archivos de migracion
+python3 manage.py migrate {nombre de la app} //sin nada busca todo
+
+#para poder manipular python con el contexto de django actual usamos:
+python3 manage.py shell
+
+#importamos los modelos apra poder usarlos:
+from {nombre de la app} import {nombre del modelo1, nombre del modelo2...}
+
+#despues podemos hacer querys y cmabios en la base de datos rollo:
+Project.objects.all()
+Project.create(name="desarollar una aplicacion movil")
+Project.objects.filter(name__startswith="aplicacion")
+p = Project.create(name="desarollar una aplicacion movil")
+p.save()
+p = Project.objects
+p.filter(id=1)
+p.filter(name__startswith="aplicacion")
