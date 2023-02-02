@@ -46,3 +46,9 @@ p.save()
 p = Project.objects
 p.filter(id=1)
 p.filter(name__startswith="aplicacion")
+
+#para cargar archivos estáticos hay que mirar esto:
+settings.py STATIC_URL='static/'
+se puede crear en cualquier proyecto o app
+creas la carpeta static y guardas tus archivos,
+desues haces referencia a ellosusando su nombre mas extension

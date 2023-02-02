@@ -1,0 +1,21 @@
+{% extends 'layouts/base.html' %}
+
+
+{% block content %}
+  <h1>Tasks</h1>
+  <a href="/tasks/new">Create a new Task</a>
+  {% for task in tasks %}
+    <article>
+      
+      {%if task.done == True %}
+        <h1 style="color:green">{{task.title}}</h1>
+      {% else %}
+      <h1 style="color:red">{{task.title}}</h1>
+      {% endif %}
+
+      <p>{{task.description}}</p>
+      <p>Project: {{task.project.name}}</p>
+    </article>
+  {% endfor %}
+{% endblock content %}
+

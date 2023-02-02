@@ -1,0 +1,27 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+  <a href="{% url 'projects' %}" class="custom-a">
+    <h3>Volver</h3>
+  </a>
+  <h1>Project detail</h1>
+
+  <h3>Name:</h3>
+  <p>{{ project.name }}</p>
+  <br>
+  <h4>Tasks:</h4>
+  {% for task in tasks %}
+  <article class="card">
+    <h4>{{ task.title }}</h4>
+    <ul>
+      <li>
+        {{ task.description }}
+      </li>
+    </ul>
+  </article>
+  {% endfor %}
+{% endblock content %}
+  
+
+
+

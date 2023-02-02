@@ -1,0 +1,29 @@
+{% extends 'layouts/base.html' %}
+
+
+{% block content %}
+<h1>Projects</h1>
+<a href="/projects/new" class="custom-a">Create a new Project</a>
+  {% for project in projects%}
+  <article class="card">
+    <a href="{% url 'project_detail' project.id %}" class="custom-a">
+      <h1>{{project.name}}</h1>
+    </a>
+    <button class="custom-button">
+      <a href="{% url 'remove_project' project.id %}" class="custom-a">
+        Delete
+      </a>
+    </button>
+    <button class="custom-button">
+      <a href="{% url 'update_project' project.id %}" class="custom-a">
+        Update
+      </a>
+    </button>
+  </article>
+  {% endfor %}
+
+{% endblock content %}
+  
+
+
+
